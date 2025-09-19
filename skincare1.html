@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bella Beau</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-blue': '#2c3e50',
+            'secondary-gray': '#ecf0f1',
+            'accent-gold': '#E8B49C',
+          },
+          fontFamily: {
+            sans: ['Futura', 'sans-serif'],
+            cinzel: ['Cinzel', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Futura';
+      src: url('fonts/FuturaStd-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap"
+    rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <img src="/Images/bb-home-logo.png" alt="Bella Beau Logo" class="h-14">
+
+      <nav class="hidden md:flex space-x-8 font-medium relative">
+        <a href="index.html" class="text-primary-blue">Home</a>
+
+        <div class="group relative">
+          <a href="#" class="text-primary-blue">Men</a>
+          <div
+            class="absolute left-0 mt-2 w-40 bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition duration-200">
+            <a href="hair.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Hair</a>
+            <a href="skincare.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Skin Care</a>
+            <a href="nailcare.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Nail Care</a>
+          </div>
+        </div>
+
+        <div class="group relative">
+          <a href="#" class="text-primary-blue">Women</a>
+          <div
+            class="absolute left-0 mt-2 w-44 bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition duration-200">
+            <a href="hair1.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Hair</a>
+            <a href="skincare.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Skin Care</a>
+            <a href="nailcare1.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Nail Care</a>
+            <a href="bridalservices.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Bridal Services</a>
+          </div>
+        </div>
+
+        <a href="reflexology.html" class="text-primary-blue">Reflexology</a>
+        <a href="enrichments.html" class="text-primary-blue">Enrichments</a>
+        <a href="about.html" class="text-primary-blue">About</a>
+        <a href="contact.html" class="text-primary-blue">Contact Us</a>
+      </nav>
+
+      <button class="md:hidden text-primary-blue focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="relative bg-primary-blue flex flex-col items-center justify-center pt-20 pb-10">
+    <div class="absolute inset-0">
+      <img src="/Images/background-3_edited_edited_edited_edited_edited.png"
+        alt="Skin Care Background"
+        class="w-full h-full object-cover opacity-30">
+    </div>
+    <section
+      class="max-w-4xl mx-auto bg-white text-black p-8 md:p-12 z-10 text-center">
+      <h1 class="text-3xl md:text-4xl font-cinzel font-bold mb-4">WOMEN</h1>
+      <h2 class="text-2xl md:text-3xl font-cinzel font-bold mb-4">SKIN CARE</h2>
+      <p class="text-base md:text-lg leading-relaxed">
+        A good facial not just gives you a bright looking skin, but also gives you that healthy glow your skin deserves!
+        <br><br>
+        Daily exposure to pollution, sun tanning and stress damage your skin. Choose from our exclusive range of facial services that suits your skin type.
+      </p>
+    </section>
+  </div>
+
+  <!-- Services Section -->
+  <section
+    class="relative bg-primary-blue mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-6 lg:px-8 py-20">
+    <div class="absolute inset-0">
+      <img src="/Images/background-3_edited_edited_edited_edited_edited.png"
+        alt="Skin Care Background"
+        class="w-full h-full object-cover opacity-30">
+    </div>
+
+    <!-- Box 1 -->
+    <div class="bg-primary-blue text-white border-4 shadow-md p-6"
+      style="border-color: rgb(232, 180, 156);">
+      <h2 class="text-xl font-bold mb-4 text-center">CLEANUP</h2>
+      <ul class="space-y-2 text-center">
+        <li>Fruit Cleanup</li>
+        <li>Teatree Cleanup</li>
+        <li>Papaya</li>
+        <li>Basic Cleanup</li>
+        <li>Green Tea</li>
+        <li>Wine Cleanup</li>
+      </ul>
+    </div>
+
+    <!-- Box 2 -->
+    <div class="bg-primary-blue text-white border-4 shadow-md p-6"
+      style="border-color: rgb(232, 180, 156);">
+      <h2 class="text-xl font-bold mb-4 text-center">TREATMENT FACIAL</h2>
+      <ul class="space-y-2 text-center">
+        <li>Under eye treatment</li>
+        <li>Pimple treatment</li>
+        <li>Anti aging</li>
+        <li>Pigmentation</li>
+      </ul>
+    </div>
+
+    <!-- Box 3 -->
+    <div class="bg-primary-blue text-white border-4 shadow-md p-6"
+      style="border-color: rgb(232, 180, 156);">
+      <h2 class="text-xl font-bold mb-4 text-center">BASIC FACIAL</h2>
+      <ul class="space-y-2 text-center">
+        <li>Fruit Facial</li>
+        <li>Signature Fruit Facial</li>
+        <li>Green Tea Facial</li>
+        <li>Wine Facial</li>
+        <li>Skin Lightening Facial</li>
+        <li>Regular Facial</li>
+      </ul>
+    </div>
+
+    <!-- Box 4 -->
+    <div class="bg-primary-blue text-white border-4 shadow-md p-6"
+      style="border-color: rgb(232, 180, 156);">
+      <h2 class="text-xl font-bold mb-4 text-center">ADD ON MASK</h2>
+      <ul class="space-y-2 text-center">
+        <li>Charcoal mask</li>
+        <li>Gold peel off mask</li>
+        <li>Age miracle wrinkle face mask</li>
+      </ul>
+    </div>
+
+    <!-- Box 5 -->
+    <div class="bg-primary-blue text-white border-4 shadow-md p-6"
+      style="border-color: rgb(232, 180, 156);">
+      <h2 class="text-xl font-bold mb-4 text-center">ADVANCED FACIAL</h2>
+      <ul class="space-y-2 text-center">
+        <li>Oxygen Facial</li>
+        <li>Vitamin C Facial</li>
+        <li>Skin whitening Facial</li>
+        <li>Anti aging Facial</li>
+        <li>24k gold Facial</li>
+        <li>Instant glow Facial</li>
+        <li>Skin brightening Facial</li>
+        <li>Brightening De-tan Facial</li>
+      </ul>
+    </div>
+
+    <!-- Box 6 -->
+    <div class="bg-primary-blue text-white border-4 shadow-md p-6"
+      style="border-color: rgb(232, 180, 156);">
+      <h2 class="text-xl font-bold mb-4 text-center">DETAN / BLEACH</h2>
+      <ul class="space-y-2 text-center">
+        <li>Face and neck</li>
+        <li>Back and neck</li>
+        <li>Feet</li>
+        <li>Half legs</li>
+        <li>Half hand</li>
+        <li>Full hand</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr>
+  <!-- Footer -->
+  <footer class="bg-primary-blue text-white py-16 px-6 sm:px-10 lg:px-20 section-footer">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <img src="/Images/logo-2.avif" alt="Bella Beau Logo" class="h-16 mb-4">
+        <p class="mt-4 text-sm opacity-90 leading-relaxed max-w-xs mx-auto md:mx-0">
+          In Bella Beau, we strive to exceed your expectations and provide you with exceptional hair and beauty
+          services. We are passionate about our craft and take pride in staying up-to-date with the latest trends and
+          techniques in the industry.
+        </p>
+        <h5 class="text-2xl font-bold mb-2 font-cinzel mt-4">Follow Us</h5>
+        <div class="flex space-x-4">
+          <a href="#" class="text-white hover:text-accent-gold"><i class="bi bi-whatsapp text-2xl"></i></a>
+          <a href="#" class="text-white hover:text-accent-gold"><i class="bi bi-instagram text-2xl"></i></a>
+        </div>
+      </div>
+
+      <div class="text-center ml-16 md:text-left">
+        <h5 class="text-2xl font-bold mb-4 font-cinzel">Services</h5>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li><a href="#" class="hover:text-accent-gold">Hair</a></li>
+          <li><a href="#" class="hover:text-accent-gold">Skin</a></li>
+          <li><a href="#" class="hover:text-accent-gold">Nails</a></li>
+          <li><a href="#" class="hover:text-accent-gold">Reflexology</a></li>
+          <li><a href="#" class="hover:text-accent-gold">Enrichments</a></li>
+        </ul>
+      </div>
+
+      <div class="text-center md:text-left">
+        <h5 class="text-2xl font-bold mb-4 font-cinzel">Quick Links</h5>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li><a href="#" class="hover:text-accent-gold">About Us</a></li>
+          <li><a href="#" class="hover:text-accent-gold">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="text-center md:text-left">
+        <h5 class="text-2xl font-bold mb-4 font-cinzel">Contact</h5>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li><span class="font-bold">Phone:</span> +91 7845884996</li>
+          <li><span class="font-bold">Email:</span> salon.bellabeau@gmail.com</li>
+          <li><span class="font-bold">Address:</span> Bella Beau Unisex Salon<br>2nd Floor, No.5/185,
+            Narasimmar Koil street, Thalambur Main Road, Navalur, Chennai - 600130</li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center mt-12 text-gray-300 text-sm">
+      &copy; 2025 by Bella Beau. All rights reserved.
+    </p>
+  </footer>
+
+</body>
+</html>

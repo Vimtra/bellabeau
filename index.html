@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bella Beau</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#2c3e50',
+                        'secondary-gray': '#ecf0f1',
+                        'accent-gold': '#2c3e50',
+                    },
+                    fontFamily: {
+                        sans: ['Futura', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @font-face {
+    font-family: 'Futura';
+    src: url('fonts/FuturaStd-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+        /* Base for fade-in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Hero text specific animation */
+        #hero-text-1, #hero-text-2 {
+            transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+        }
+
+        /* Animation keyframes for sliding in from left and right */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Wow Effect Section specific animations */
+        @keyframes zoomInBounce {
+            0% { opacity: 0; transform: scale(0.6) rotate(-10deg); }
+            50% { opacity: 1; transform: scale(1.1) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        @keyframes staggeredFadeUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Apply animations to the respective sections */
+        .section-wow, .section-services, .section-popular, .section-testimonial, .section-footer {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            transition-delay: 0.2s; /* Staggered effect */
+        }
+        
+        .animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Special animations for the two service cards */
+        .section-services.animated .service-card-left {
+            animation: slideInLeft 1.5s ease-out forwards;
+        }
+        .section-services.animated .service-card-right {
+            animation: slideInRight 1.5s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        /* Popular Services card new design with backdrop filter */
+        .popular-service-card-new-design {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        
+        .popular-service-card-new-design:hover {
+            transform: translateY(-12px) rotate(2deg) scale(1.08);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+       
+        .testimonial-container {
+            overflow: hidden;
+            width: 100%;
+            background-color: rgb(29, 21, 19);
+        }
+        .testimonial-slider {
+            display: flex;
+            transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .testimonial-item {
+            flex-shrink: 0;
+            width: 100%;
+            padding: 0 1rem;
+            background-color: rgba(255, 255, 255, 0.8); /* Pop-up box effect */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.6s ease-in-out;
+        }
+        .testimonial-item.active-slide {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .dot {
+            transition: transform 0.3s ease-in-out;
+        }
+        .dot.active {
+            transform: scale(1.5);
+            background-color: #2c3e50;
+        }
+
+        /* Wow Effect Section specific styling */
+        .section-wow-bg {
+            background-image: url('/Images/Woweffect-img.avif');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-wow.animated .wow-effect-popup {
+            animation: zoomInBounce 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+        }
+        .section-wow.animated .wow-effect-popup h3 { animation: staggeredFadeUp 0.8s ease-out forwards; animation-delay: 0.2s; opacity: 0; }
+        .section-wow.animated .wow-effect-popup p { animation: staggeredFadeUp 0.8s ease-out forwards; animation-delay: 0.5s; opacity: 0; }
+        .section-wow.animated .wow-effect-popup a { animation: staggeredFadeUp 0.8s ease-out forwards; animation-delay: 0.8s; opacity: 0; }
+        
+        /* Services Overview Section specific styling */
+        .section-services-bg {
+            background-image: url('/Images/services-overviewimg.avif');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Popular Services Section specific styling */
+        .bg-popular-services {
+            background-image: url('/Images/Ourpopularservicesimg.avif');
+            background-size: cover;
+            background-position: center;
+        }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons CSS for social media icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+   <!-- Header -->
+<header class="bg-white shadow-md rounded-b-xl sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <!-- Logo in Header -->
+    <img src="/Images/bb-home-logo.png" alt="Bella Beau Logo" class="h-14">
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-8 font-medium relative">
+      <a href="#" class="text-primary-blue hover:text-accent-gold transition-colors">Home</a>
+
+      <!-- Men Dropdown -->
+      <div class="group relative">
+        <a href="#" class="text-primary-blue hover:text-accent-gold transition-colors">Men</a>
+        <div
+          class="absolute left-0 mt-2 w-40 bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition duration-200">
+          <a href="hair.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Hair</a>
+          <a href="skincare.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Skin Care</a>
+          <a href="nailcare.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Nail care</a>
+        </div>
+      </div>
+
+      <!-- Women Dropdown -->
+      <div class="group relative">
+        <a href="#" class="text-primary-blue hover:text-accent-gold transition-colors">Women</a>
+        <div
+          class="absolute left-0 mt-2 w-44 bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition duration-200">
+          <a href="hair1.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Hair</a>
+          <a href="skincare1.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Skin Care</a>
+          <a href="nailcare1.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Nail Care</a>
+          <a href="bridalservices.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Bridal Services</a>
+        </div>
+      </div>
+
+      <a href="reflexology.html" class="text-primary-blue hover:text-accent-gold transition-colors">Reflexology</a>
+      <a href="enrichments.html" class="text-primary-blue hover:text-accent-gold transition-colors">Enrichments</a>
+      <a href="about.html" class="text-primary-blue hover:text-accent-gold transition-colors">About</a>
+      <a href="contact.html" class="text-primary-blue hover:text-accent-gold transition-colors">Contact Us</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button class="md:hidden text-primary-blue focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+
+    <!-- Hero Section with Image and Text Transition -->
+    <section class="relative h-[90vh] overflow-hidden">
+        <!-- The two hero images are stacked here -->
+        <img src="/Images/Hero-img bella beau1.avif" id="hero-img-1" alt="Hero Image 1"
+            class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100" />
+        <img src="/Images/Hero-img bella beau2.avif" id="hero-img-2"  alt="Hero Image 2"
+            class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" />
+        
+        <!-- The content overlay for the first image -->
+        <div id="hero-text-1" class="absolute top-1/2 left-8 transform -translate-y-1/2 text-white text-left transition-opacity duration-1000 ease-in-out opacity-100">
+            <p class="uppercase tracking-widest text-sm mb-2 font-medium">Radiant Skin</p>
+            <h2 class="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-lg font-cinzel">Bring out your glow<br> with our facials</h2>
+            <a href="#"
+                class="mt-8 inline-block px-8 py-3 bg-white text-primary-blue  shadow-lg hover:bg-gray-200 transition-transform transform hover:scale-105 font-bold uppercase tracking-wide animate-pulse">
+                Explore Our Services
+            </a>
+        </div>
+        
+        <!-- The content overlay for the second image -->
+        <div id="hero-text-2" class="absolute top-1/2 left-8 transform -translate-y-1/2 text-white text-left transition-opacity duration-1000 ease-in-out opacity-0">
+            <p class="uppercase tracking-widest text-sm mb-2 font-medium">Bring out your glow</p>
+            <h2 class="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-lg font-cinzel">Glamorous<br>Hairstyles</h2>
+            <a href="#"
+                class="mt-8 inline-block px-8 py-3 bg-white text-primary-blue shadow-lg hover:bg-gray-200 transition-transform transform hover:scale-105 font-bold uppercase tracking-wide animate-pulse">
+                Explore Our Services
+            </a>
+        </div>
+    </section>
+
+    <!-- The Wow Effect Section -->
+    <section class="relative h-[90vh] section-wow">
+        <div class="absolute inset-0 section-wow-bg"></div>
+        <!-- Dark overlay for text visibility -->
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="absolute inset-0 flex flex-col justify-center items-center text-center">
+            <div class="bg-black/30 p-8 text-white max-w-lg mx-auto">
+                <h3 class="text-3xl sm:text-4xl font-semibold mb-4 drop-shadow-sm font-cinzel">The Wow Effect. All Day Long.</h3>
+                <p class="mb-8 text-lg opacity-90">
+                    At Bella Beau, our team of experienced and dedicated professionals are committed to providing you with
+                    top-quality beauty services in a comfortable and welcoming environment. We believe in bringing out the
+                    best in you.
+                </p>
+                <a href="#"
+                    class="px-8 py-3 bg-primary-blue text-white font-bold shadow-lg hover:bg-gray-700 transition-transform transform hover:scale-105">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section class="relative h-[90vh] section-services section-services-bg">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-blue/70 to-white/70"></div>
+        <div class="absolute inset-0 flex flex-col justify-center py-16 px-6 sm:px-10 lg:px-20 section-services-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto z-10">
+                <div class="bg-primary-blue text-white text-center p-12 shadow-lg flex flex-col justify-center items-center service-card-left">
+                    <h4 class="text-2xl mb-4 font-semibold font-cinzel">Beauty Services for Men</h4>
+                    <p class="mb-8 text-lg">
+                        Our specialized services for men are designed to provide a tailored grooming experience. From sharp haircuts to revitalizing facials and body treatments, we ensure you look and feel your absolute best.
+                    </p>
+                    <a href="#"
+                        class="px-8 py-3 bg-white text-primary-blue shadow-md hover:bg-gray-200 transition-transform transform hover:scale-105 font-medium">
+                        Explore Men's Services
+                    </a>
+                </div>
+                <div class="bg-white text-primary-blue text-center p-12 shadow-lg flex flex-col justify-center items-center service-card-right">
+                    <h4 class="text-2xl mb-4 font-semibold font-cinzel">Beauty Services for Women</h4>
+                    <p class="mb-8 text-lg">
+                        We offer a comprehensive range of beauty services for women, including advanced skincare, luxurious hair treatments, professional makeup application, and meticulous nail care. Let us help you achieve your perfect look.
+                    </p>
+                    <a href="#"
+                        class="px-8 py-3 bg-primary-blue text-white shadow-md hover:bg-gray-700 transition-transform transform hover:scale-105 font-medium">
+                        Explore Women's Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Services Section -->
+    <section class="relative py-20 px-6 section-popular h-[90vh]">
+        <div class="absolute inset-0 bg-popular-services"></div>
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <h3 class="text-3xl sm:text-4xl text-center font-bold mb-12 text-white font-cinzel">Our Popular Services</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="popular-service-card-new-design text-white p-8  transition-all popular-service-card hover:shadow-2xl hover:rotate-1">
+                    <h4 class="text-2xl font-bold mb-4 font-cinzel">Haircuts and Colouring</h4>
+                    <p class="mb-6 leading-relaxed">
+                        Our team of professional stylists can create simple to complex hairstyles that help you shine like never before. We offer a wide range of cutting-edge techniques and vibrant colors.
+                    </p>
+                    <a href="#" class="px-6 py-2 bg-accent-gold text-white  font-medium hover:bg-gray-200 transition-colors">
+                        More Info
+                    </a>
+                </div>
+                <div class="popular-service-card-new-design text-white p-8  transition-all popular-service-card hover:shadow-2xl hover:rotate-1">
+                    <h4 class="text-2xl font-bold mb-4 font-cinzel">Facials and Massaging</h4>
+                    <p class="mb-6 leading-relaxed">
+                        Our wide range of skincare treatments are designed to rejuvenate and revitalize your skin, boosting your confidence and giving you a healthy, natural glow.
+                    </p>
+                    <a href="#" class="px-6 py-2 bg-accent-gold text-white font-medium hover:bg-gray-200 transition-colors">
+                        More Info
+                    </a>
+                </div>
+                <div class="popular-service-card-new-design text-white p-8 transition-all popular-service-card hover:shadow-2xl hover:rotate-1">
+                    <h4 class="text-2xl font-bold mb-4 font-cinzel">Nail Care</h4>
+                    <p class="mb-6 leading-relaxed">
+                        Our salon offers a variety of nail care services, including manicures, pedicures, and nail extensions. Our skilled technicians use only the highest quality products to ensure that your nails look and feel great.
+                    </p>
+                    <a href="#" class="px-6 py-2 bg-accent-gold text-white font-medium hover:bg-gray-200 transition-colors">
+                        More Info
+                    </a>
+                </div>
+                <div class="popular-service-card-new-design text-white p-8 transition-all popular-service-card hover:shadow-2xl hover:rotate-1">
+                    <h4 class="text-2xl font-bold mb-4 font-cinzel">Bridal Services</h4>
+                    <p class="mb-6 leading-relaxed">
+                        Prepare for your special day with our luxurious bridal packages. We offer custom makeup, elegant hair styling, and relaxing pre-wedding treatments to ensure you walk down the aisle looking and feeling radiant.
+                    </p>
+                    <a href="#" class="px-6 py-2 bg-accent-gold text-white font-medium hover:bg-gray-200 transition-colors">
+                        More Info
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="relative py-20 px-6 flex justify-center items-center bg-white section-testimonial">
+        <div class="relative z-10  p-8  shadow-lg flex flex-col md:flex-row items-center justify-between max-w-5xl mx-auto " style="background-color: rgb(29, 21, 19);">
+            <div class="w-full md:w-1/2 flex justify-center items-center mb-8 md:mb-0">
+                 <img src="/Images/Testominialimg.avif" alt="Testimonial Image"
+                    class="w-64 h-64 md:w-80 md:h-80 object-cover shadow-lg" />
+            </div>
+            <div class="w-full md:w-1/2 md:pl-12">
+                <div id="testimonial-container" class="relative w-full overflow-hidden">
+                    <div id="testimonial-slider" class="flex transition-transform ease-in-out duration-700">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-item flex-shrink-0 w-full px-4 text-center">
+                            <blockquote class="max-w-4xl mx-auto text-lg italic text-gray-700 md:text-left">
+                                “The service at Bella Beau is simply exceptional. From the moment I walked in, I felt pampered and cared for. The results were stunning, and I can't wait to return. They truly know how to make you feel beautiful inside and out.”
+                            </blockquote>
+                        </div>
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-item flex-shrink-0 w-full px-4 text-center">
+                            <blockquote class="max-w-4xl mx-auto text-lg italic text-gray-700 md:text-left">
+                                “I was looking for a new salon and Bella Beau exceeded all my expectations. The staff are incredibly friendly, and their attention to detail is unmatched. My hair has never looked better!”
+                            </blockquote>
+                        </div>
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-item flex-shrink-0 w-full px-4 text-center">
+                            <blockquote class="max-w-4xl mx-auto text-lg italic text-gray-700 md:text-left">
+                                “The reflexology session was so relaxing, and the enrichments really made me feel renewed. The salon has a wonderful, peaceful atmosphere. Highly recommend for a truly rejuvenating experience.”
+                            </blockquote>
+                        </div>
+                    </div>
+                    <!-- Navigation dots -->
+                    <div class="flex justify-center mt-8 space-x-2">
+                        <span class="dot h-3 w-3 rounded-full bg-primary-blue opacity-50 cursor-pointer" data-index="0"></span>
+                        <span class="dot h-3 w-3 rounded-full bg-primary-blue opacity-50 cursor-pointer" data-index="1"></span>
+                        <span class="dot h-3 w-3 rounded-full bg-primary-blue opacity-50 cursor-pointer" data-index="2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-blue text-white py-16 px-6 sm:px-10 lg:px-20 section-footer">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Left Side: Logo, Info and Socials -->
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <img src="/Images/logo-2.avif" alt="Bella Beau Logo" class="h-16 mb-4">
+                <p class="mt-4 text-sm opacity-90 leading-relaxed max-w-xs mx-auto md:mx-0">In Bella Beau, we strive to exceed your expectations and provide you with exceptional hair and beauty services. We are passionate about our craft and take pride in staying up-to-date with the latest trends and techniques in the industry.</p>
+                <h5 class="text-2xl font-bold mb-2 font-cinzel mt-4">Follow Us</h5>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-accent-gold transition-colors">
+                        <i class="bi bi-whatsapp text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-accent-gold transition-colors">
+                        <i class="bi bi-instagram text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div class="text-center ml-16 md:text-left">
+                <h5 class="text-2xl font-bold mb-4 font-cinzel">Services</h5>
+                <ul class="space-y-2 text-sm opacity-90">
+                    <li><a href="#" class="hover:text-accent-gold transition-colors">Hair</a></li>
+                    <li><a href="#" class="hover:text-accent-gold transition-colors">Skin</a></li>
+                    <li><a href="#" class="hover:text-accent-gold transition-colors">Nails</a></li>
+                    <li><a href="#" class="hover:text-accent-gold transition-colors">Reflexology</a></li>
+                    <li><a href="#" class="hover:text-accent-gold transition-colors">Enrichments</a></li>
+                </ul>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="text-center md:text-left">
+                <h5 class="text-2xl font-bold mb-4 font-cinzel">Quick Links</h5>
+                <ul class="space-y-2 text-sm opacity-90">
+                    <li><a href="#" class="hover:text-accent-gold transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-accent-gold transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact -->
+            <div class="text-center md:text-left">
+                <h5 class="text-2xl font-bold mb-4 font-cinzel">Contact</h5>
+                <ul class="space-y-2 text-sm opacity-90">
+                    <li><span class="font-bold">Phone:</span> +91 7845884996</li>
+                    <li><span class="font-bold">Email:</span> salon.bellabeau@gmail.com</li>
+                    <li><span class="font-bold">Address:</span> Bella Beau Unisex Salon<br>2nd Floor, No.5/185, Narasimmar Koil street, Thalambur Main Road, Navalur, Chennai - 600130</li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-center mt-12 text-gray-300 text-sm">
+            &copy; 2025 by Bella Beau. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- JavaScript for Hero Image and Text Transition and Scroll Animation -->
+    <script>
+        const image1 = document.getElementById('hero-img-1');
+        const image2 = document.getElementById('hero-img-2');
+        const text1 = document.getElementById('hero-text-1');
+        const text2 = document.getElementById('hero-text-2');
+        let currentImage = 1;
+
+        function transitionContent() {
+            if (currentImage === 1) {
+                // Hide image 1 and text 1, show image 2 and text 2
+                image1.classList.remove('opacity-100');
+                image1.classList.add('opacity-0');
+                text1.classList.remove('opacity-100');
+                text1.classList.add('opacity-0');
+                
+                image2.classList.remove('opacity-0');
+                image2.classList.add('opacity-100');
+                text2.classList.remove('opacity-0');
+                text2.classList.add('opacity-100');
+                currentImage = 2;
+            } else {
+                // Hide image 2 and text 2, show image 1 and text 1
+                image2.classList.remove('opacity-100');
+                image2.classList.add('opacity-0');
+                text2.classList.remove('opacity-100');
+                text2.classList.add('opacity-0');
+
+                image1.classList.remove('opacity-0');
+                image1.classList.add('opacity-100');
+                text1.classList.remove('opacity-0');
+                text1.classList.add('opacity-100');
+                currentImage = 1;
+            }
+        }
+
+        setInterval(transitionContent, 5000);
+
+        // JavaScript for scroll-based animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section-wow, .section-services, .section-popular, .section-testimonial, .section-footer');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Testimonial carousel logic
+            const slider = document.getElementById('testimonial-slider');
+            const dots = document.querySelectorAll('.dot');
+            let currentIndex = 0;
+            const totalTestimonials = slider.children.length;
+
+            function updateSlider() {
+                const offset = -currentIndex * 100;
+                slider.style.transform = `translateX(${offset}%)`;
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                    dot.style.backgroundColor = index === currentIndex ? '#2c3e50' : '#d2d6dc';
+                });
+            }
+
+            function nextTestimonial() {
+                currentIndex = (currentIndex + 1) % totalTestimonials;
+                updateSlider();
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    currentIndex = parseInt(e.target.dataset.index);
+                    updateSlider();
+                });
+            });
+
+            setInterval(nextTestimonial, 5000); // Change testimonial every 5 seconds
+            updateSlider(); // Initial update to set the first testimonial and dot
+        });
+    </script>
+
+</body>
+</html>

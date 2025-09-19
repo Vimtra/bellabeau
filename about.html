@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bella Beau | About Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-blue': '#2c3e50',
+            'secondary-gray': '#ecf0f1',
+            'accent-gold': '#2c3e50',
+          },
+          fontFamily: {
+            sans: ['Futura', 'sans-serif'],
+            cinzel: ['Cinzel', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>  @font-face {
+    font-family: 'Futura';
+    src: url('fonts/FuturaStd-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+ <!-- Header -->
+<header class="bg-white shadow-md rounded-b-xl sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <!-- Logo in Header -->
+    <img src="/Images/bb-home-logo.png" alt="Bella Beau Logo" class="h-14">
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-8 font-medium relative">
+      <a href="#" class="text-primary-blue hover:text-accent-gold transition-colors">Home</a>
+
+      <!-- Men Dropdown -->
+      <div class="group relative">
+        <a href="#" class="text-primary-blue hover:text-accent-gold transition-colors">Men</a>
+        <div
+          class="absolute left-0 mt-2 w-40 bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition duration-200">
+          <a href="hair.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Hair</a>
+          <a href="skincare.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Skin Care</a>
+          <a href="nailcare.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Nail care</a>
+        </div>
+      </div>
+
+      <!-- Women Dropdown -->
+      <div class="group relative">
+        <a href="#" class="text-primary-blue hover:text-accent-gold transition-colors">Women</a>
+        <div
+          class="absolute left-0 mt-2 w-44 bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition duration-200">
+          <a href="hair1.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Hair</a>
+          <a href="skincare1.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Skin Care</a>
+          <a href="nailcare1.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Nail Care</a>
+          <a href="bridalservices.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Bridal Services</a>
+        </div>
+      </div>
+
+      <a href="reflexology.html" class="text-primary-blue hover:text-accent-gold transition-colors">Reflexology</a>
+      <a href="enrichments.html" class="text-primary-blue hover:text-accent-gold transition-colors">Enrichments</a>
+      <a href="about.html" class="text-primary-blue hover:text-accent-gold transition-colors">About</a>
+      <a href="contact.html" class="text-primary-blue hover:text-accent-gold transition-colors">Contact Us</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button class="md:hidden text-primary-blue focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <!-- Hero Section (Our Fab Story) -->
+  <section class="bg-white py-20 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-cinzel font-bold text-primary-blue mb-6">
+        OUR FAB STORY
+      </h1>
+    </div>
+  </section>
+
+  <!-- Content Section with Background Image -->
+  <section class="relative py-16 text-white bg-primary-blue">
+        <div class="absolute inset-0">
+            <img src="/Images/enrichments-bg2.avif" alt="Enrichments Background 2" class="w-full h-full object-cover opacity-30">
+        </div>
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <p class="text-lg leading-relaxed">
+        In Bella Beau, we strive to exceed your expectations and provide you with exceptional
+        hair and beauty services. We are passionate about our craft and take pride in staying
+        up-to-date with the latest trends and techniques in the industry. Our team of experienced
+        professionals are dedicated to delivering personalized services that cater to your unique
+        style and preferences. Our salon is designed to be a peaceful and relaxing space where
+        you can unwind and indulge in some luxurious self-care sessions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Timings Section -->
+  <section class="relative py-16 bg-primary-blue text-white text-center">
+    <div class="absolute inset-0">
+            <img src="/Images/enrichments-bg2.avif" alt="Enrichments Background 2" class="w-full h-full object-cover opacity-30">
+    </div>
+    <h2 class="text-3xl font-cinzel font-bold mb-10">Hours of Operation</h2>
+    <div class="max-w-2xl mx-auto">
+      <ul class="space-y-3 text-lg">
+        <li><span class="font-semibold">Monday:</span> 10 AM - 8.30 PM</li>
+        <li><span class="font-semibold">Tuesday:</span> 10 AM - 8.30 PM</li>
+        <li><span class="font-semibold">Wednesday:</span> 10 AM - 8.30 PM</li>
+        <li><span class="font-semibold">Thursday:</span> 10 AM - 8.30 PM</li>
+        <li><span class="font-semibold">Friday:</span> 10 AM - 8.30 PM</li>
+        <li><span class="font-semibold">Saturday:</span> 10 AM - 8.30 PM</li>
+        <li><span class="font-semibold">Sunday:</span> 10 AM - 8.30 PM</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <hr><footer class="bg-primary-blue text-white py-16 px-6 sm:px-10 lg:px-20 section-footer">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <img src="/Images/logo-2.avif" alt="Bella Beau Logo" class="h-16 mb-4">
+        <p class="mt-4 text-sm opacity-90 leading-relaxed max-w-xs mx-auto md:mx-0">
+          In Bella Beau, we strive to exceed your expectations and provide you with exceptional
+          hair and beauty services. We are passionate about our craft and take pride in staying
+          up-to-date with the latest trends and techniques in the industry.
+        </p>
+        <h5 class="text-2xl font-bold mb-2 font-cinzel mt-4">Follow Us</h5>
+        <div class="flex space-x-4">
+          <a href="#" class="text-white hover:text-accent-gold transition-colors">
+            <i class="bi bi-whatsapp text-2xl"></i>
+          </a>
+          <a href="#" class="text-white hover:text-accent-gold transition-colors">
+            <i class="bi bi-instagram text-2xl"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="text-center ml-16 md:text-left">
+        <h5 class="text-2xl font-bold mb-4 font-cinzel">Services</h5>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li><a href="#" class="hover:text-accent-gold transition-colors">Hair</a></li>
+          <li><a href="#" class="hover:text-accent-gold transition-colors">Skin</a></li>
+          <li><a href="#" class="hover:text-accent-gold transition-colors">Nails</a></li>
+          <li><a href="#" class="hover:text-accent-gold transition-colors">Reflexology</a></li>
+          <li><a href="#" class="hover:text-accent-gold transition-colors">Enrichments</a></li>
+        </ul>
+      </div>
+
+      <div class="text-center md:text-left">
+        <h5 class="text-2xl font-bold mb-4 font-cinzel">Quick Links</h5>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li><a href="about.html" class="hover:text-accent-gold transition-colors">About Us</a></li>
+          <li><a href="#" class="hover:text-accent-gold transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="text-center md:text-left">
+        <h5 class="text-2xl font-bold mb-4 font-cinzel">Contact</h5>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li><span class="font-bold">Phone:</span> +91 7845884996</li>
+          <li><span class="font-bold">Email:</span> salon.bellabeau@gmail.com</li>
+          <li><span class="font-bold">Address:</span> Bella Beau Unisex Salon<br>
+            2nd Floor, No.5/185, Narasimmar Koil street, Thalambur Main Road, Navalur, Chennai - 600130</li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center mt-12 text-gray-300 text-sm">
+      &copy; 2025 by Bella Beau. All rights reserved.
+    </p>
+  </footer>
+
+</body>
+</html>

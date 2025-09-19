@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reflexology – Bella Beau</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-blue': '#2c3e50',
+            'secondary-gray': '#ecf0f1',
+            'accent-gold': '#2c3e50',
+          },
+          fontFamily: {
+            sans: ['Futura', 'sans-serif'],
+            cinzel: ['Cinzel', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Futura';
+      src: url('fonts/FuturaStd-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    .bg-reflexology {
+      background-image: url('/Images/reflexology-bg.jpg'); /* replace with your bg image */
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+<header class="bg-white shadow-md rounded-b-xl sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <!-- Logo in Header -->
+    <img src="/Images/bb-home-logo.png" alt="Bella Beau Logo" class="h-14">
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-8 font-medium relative">
+      <a href="#" class="text-primary-blue hover:text-accent-gold transition-colors">Home</a>
+
+      <!-- Men Dropdown -->
+      <div class="group relative">
+        <a href="#" class="text-primary-blue hover:text-accent-gold transition-colors">Men</a>
+        <div
+          class="absolute left-0 mt-2 w-40 bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition duration-200">
+          <a href="hair.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Hair</a>
+          <a href="skincare.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Skin Care</a>
+          <a href="nailcare.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Nail care</a>
+        </div>
+      </div>
+
+      <!-- Women Dropdown -->
+      <div class="group relative">
+        <a href="#" class="text-primary-blue hover:text-accent-gold transition-colors">Women</a>
+        <div
+          class="absolute left-0 mt-2 w-44 bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition duration-200">
+          <a href="hair1.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Hair</a>
+          <a href="skincare1.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Skin Care</a>
+          <a href="nailcare1.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Nail Care</a>
+          <a href="bridalservices.html" class="block px-4 py-2 text-primary-blue hover:bg-gray-100">Bridal Services</a>
+        </div>
+      </div>
+
+      <a href="reflexology.html" class="text-primary-blue hover:text-accent-gold transition-colors">Reflexology</a>
+      <a href="enrichments.html" class="text-primary-blue hover:text-accent-gold transition-colors">Enrichments</a>
+      <a href="about.html" class="text-primary-blue hover:text-accent-gold transition-colors">About</a>
+      <a href="contact.html" class="text-primary-blue hover:text-accent-gold transition-colors">Contact Us</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button class="md:hidden text-primary-blue focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <!-- Hero Section -->
+  <section class="bg-white py-20 px-6 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold text-primary-blue font-cinzel mb-6">Reflexology</h1>
+    <p class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+      True external beauty starts from within and reflexology is a key point to keep you stress free. 
+      Apt reflexology techniques help keep your mind and soul calm and healthy.
+    </p>
+  </section>
+
+  <!-- Reflexology Cards Section -->
+  <section class="relative py-20 text-white bg-primary-blue px-6 bg-reflexology">
+<div class="absolute inset-0">
+            <img src="/Images/enrichments-bg2.avif" alt="Enrichments Background 2" class="w-full h-full object-cover opacity-30">
+        </div><!-- Overlay in footer color -->
+    <div class="relative z-10 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        
+        <!-- Card 1 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden text-center">
+          <img src="/Images/Hand-Massage.avif" alt="Hand Massage" class="h-50 w-full object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-primary-blue font-cinzel">Hand</h3>
+            <p class="mt-4 font-semibold text-primary-blue">30 MINS</p>
+            <p class="font-semibold text-primary-blue">45 MINS</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden text-center">
+          <img src="/Images/Foot-Reflexology.avif" alt="Foot Reflexology" class="h-50 w-full object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-primary-blue font-cinzel">Foot</h3>
+            <p class="mt-4 font-semibold text-primary-blue">30 MINS</p>
+            <p class="font-semibold text-primary-blue">45 MINS</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden text-center">
+          <img src="/Images/Head-Massage.avif" alt="Head Massage" class="h-50 w-full object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-primary-blue font-cinzel">Head And Neck</h3>
+            <p class="mt-4 font-semibold text-primary-blue">30 MINS</p>
+            <p class="font-semibold text-primary-blue">45 MINS</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden text-center">
+          <img src="/Images/Back-Massage.avif" alt="Back Massage" class="h-50 w-full object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-primary-blue font-cinzel">Back</h3>
+            <p class="mt-4 font-semibold text-primary-blue">30 MINS</p>
+            <p class="font-semibold text-primary-blue">45 MINS</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<hr>
+  <!-- Footer (same as index.html) -->
+  <footer class="bg-primary-blue text-white py-16 px-6 sm:px-10 lg:px-20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <img src="/Images/logo-2.avif" alt="Bella Beau Logo" class="h-16 mb-4">
+        <p class="mt-4 text-sm opacity-90 leading-relaxed max-w-xs mx-auto md:mx-0">
+          In Bella Beau, we strive to exceed your expectations and provide you with exceptional hair and beauty services.
+        </p>
+        <h5 class="text-2xl font-bold mb-2 font-cinzel mt-4">Follow Us</h5>
+        <div class="flex space-x-4">
+          <a href="#" class="text-white hover:text-accent-gold"><i class="bi bi-whatsapp text-2xl"></i></a>
+          <a href="#" class="text-white hover:text-accent-gold"><i class="bi bi-instagram text-2xl"></i></a>
+        </div>
+      </div>
+
+      <div class="text-center md:text-left">
+        <h5 class="text-2xl font-bold mb-4 font-cinzel">Services</h5>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li><a href="#" class="hover:text-accent-gold">Hair</a></li>
+          <li><a href="#" class="hover:text-accent-gold">Skin</a></li>
+          <li><a href="#" class="hover:text-accent-gold">Nails</a></li>
+          <li><a href="reflexology.html" class="hover:text-accent-gold">Reflexology</a></li>
+          <li><a href="enrichments.html" class="hover:text-accent-gold">Enrichments</a></li>
+        </ul>
+      </div>
+
+      <div class="text-center md:text-left">
+        <h5 class="text-2xl font-bold mb-4 font-cinzel">Quick Links</h5>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li><a href="about.html" class="hover:text-accent-gold">About Us</a></li>
+          <li><a href="#" class="hover:text-accent-gold">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="text-center md:text-left">
+        <h5 class="text-2xl font-bold mb-4 font-cinzel">Contact</h5>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li><span class="font-bold">Phone:</span> +91 7845884996</li>
+          <li><span class="font-bold">Email:</span> salon.bellabeau@gmail.com</li>
+          <li><span class="font-bold">Address:</span> Bella Beau Unisex Salon<br>2nd Floor, No.5/185, Narasimmar Koil street, Thalambur Main Road, Navalur, Chennai - 600130</li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center mt-12 text-gray-300 text-sm">&copy; 2025 by Bella Beau. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
